@@ -102,7 +102,7 @@ function main() {
 	if (!url.endsWith("/"))
 		url += "/";
 	getAll(url, tree, depth, bounded).then(()=>{
-		console.log("Dumping json.......");
+		console.log("Dumping json (see report.json) .......");
 		fs.writeFile("report.json", JSON.stringify(tree), (err) => {
 			if (err) throw err;
 		});
