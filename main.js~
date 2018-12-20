@@ -99,7 +99,7 @@ function main() {
 		console.log("please provide a valid depth");
 		return;
 	}
-	if (url.endsWith("/"))
+	if (!url.endsWith("/"))
 		url += "/";
 	getAll(url, tree, depth, bounded).then(()=>{
 		fs.writeFile("report.json", JSON.stringify(tree), (err) => {
