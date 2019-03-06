@@ -1,4 +1,5 @@
 const args = require("minimist")(process.argv.slice(2));
+const URL = require("url").URL;
 const fs = require("fs");
 const https = require("https");
 const http = require("http");
@@ -47,6 +48,7 @@ function getAll(url, tree, depth, bounded) {
 		currentUrl = new URL(url);
 		url = currentUrl.toString();
 	} catch (err) {
+		console.log(err);
 		if (!(err instanceof TypeError))
 			return promise.reject("Error occured while parsing the url :" + url + " error : "+err);
 		return promise.reject("Invalid url");
